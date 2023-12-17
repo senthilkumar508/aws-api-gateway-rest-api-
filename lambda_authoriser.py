@@ -21,7 +21,7 @@ def lambda_handler(event, context):
                     'Action': 'execute-api:Invoke',
                     'Resource': [
                         #event['methodArn']
-                        ["arn:aws:execute-api:us-east-1:915285575248:ib10pirqod/books/GET/*"]
+                        ["arn:aws:execute-api:us-east-1:ACCOUNT NUMBER:APIGW ID/books/*/*"]
                     ], 
                     'Effect': auth_status
                 }
