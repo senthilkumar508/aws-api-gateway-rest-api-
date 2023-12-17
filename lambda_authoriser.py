@@ -14,18 +14,17 @@ def lambda_handler(event, context):
     
     #3 - Construct and return the response
     authResponse = {
-        'policyDocument': { 
-            'Version': '2012-10-17',
-            'Statement': [
-                {
-                    'Action': 'execute-api:Invoke',
-                    'Resource': [
-                        #event['methodArn']
-                        ["arn:aws:execute-api:us-east-1:ACCOUNT NUMBER:APIGW ID/books/*/*"]
-                    ], 
-                    'Effect': auth_status
-                }
-            ]
-        }
+        'policyDocument': {
+        'Version': '2012-10-17',
+        'Statement': [
+            {
+                'Action': 'execute-api:Invoke',
+                'Resource': [
+                    'arn:aws:execute-api:us-east-1:AccountNumber:API ID/books/*/*'
+                ],
+                'Effect': auth_status
+            }
+        ]
+    }
     }
     return authResponse
