@@ -1,15 +1,17 @@
-def lambda_handler(event, context):
+# DemoAuthorizer
 
+def lambda_handler(event, context):
+    
     #1 - Log the event
     print('*********** The event is: ***************')
     print(event)
-
+    
     #2 - See if the person's token is valid
-    if event['authorizationToken'] == '1234':
+    if event['authorizationToken'] == 'abc123':
         auth_status = 'Allow'
     else:
         auth_status = 'Deny'
-
+    
     #3 - Construct and return the response
     authResponse = {
         'policyDocument': { 
@@ -19,7 +21,7 @@ def lambda_handler(event, context):
                     'Action': 'execute-api:Invoke',
                     'Resource': [
                         #event['methodArn']
-                        ["arn:aws:execute-api:us-east-1:YOURACCOUNTNUMBER:2ogoj2ul12/test/GET/customers"]
+                        ["arn:aws:execute-api:us-east-1:915285575248:ib10pirqod/books/GET/*"]
                     ], 
                     'Effect': auth_status
                 }
