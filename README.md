@@ -60,4 +60,40 @@ It's important to note that the script assumes certain conventions, such as the 
 
 
 
+**SWAGGER OPENAPI3.0.1**
 
+This is an OpenAPI Specification (OAS) document for a basic CRUD (Create, Read, Update, Delete) API for managing books. Let me break down the key components of your OpenAPI document:
+
+OpenAPI Version and Information:
+
+OpenAPI version: 3.0.1
+Title: Books API
+Description: Basic CRUD API
+Version: 1
+Servers:
+
+Base URL: /
+Paths:
+
+/books:
+
+GET: Retrieve a list of books with optional query parameters for filtering by author name and rating.
+POST: Create a new book using a JSON payload.
+/books/{isbn}:
+
+GET: Retrieve details of a specific book by ISBN.
+PUT: Update a book by ISBN using a JSON payload.
+DELETE: Delete a book by ISBN.
+Components:
+
+Schemas:
+
+Problem: An object representing an error with properties error (string) and status (number).
+postBookRequest: Schema for the JSON payload required in the POST request to create a book.
+putBookRequest: Schema for the JSON payload required in the PUT request to update a book.
+Responses:
+
+BadRequest: Response for a 400 status code with a JSON payload following the Problem schema.
+Created: Response for a 200 status code with an empty content.
+
+This OpenAPI document is a structured representation of the API. It provides information about endpoints, their operations, request and response schemas, and other relevant details.
